@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<!-- Code was made through the help of the this tutorial: https://www.w3schools.com/angular/angular_intro.asp -->        
+        
+    
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>   
+<!-- Below is need for angular animations -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Required Tags</title>
+    </head>
+    <body ng-app="myApp">
+        
+
+        <div ng-controller="myCtrl">
+            <p>Type Something Here, and Watch it Appear Below:</p>
+                <input type="text" ng-model="heading">
+            <h2>{{heading}}</h2>
+            <p>Math Problem</p>
+            <p> 100 / 2 = {{ num1 }}</p>
+        </div>
+        
+        <div ng-app>
+            <h2>{{heading}}</h2>
+            <p>Another Math Problem</p>
+            <p> 10 + 500 = {{ num1}}</p>
+        </div>
+        
+        <div ng-init="checked = true">
+              <label><input type="checkbox" ng-model="checked" />Show Sources:</label>
+              <div class="content-area sample-show-hide" ng-show="checked">
+            <ul>
+                   <li>https://angularjs.org </li>
+                   <li>https://www.w3schools.com/angular/angular_intro.asp </li>
+                   <li>https://www.w3schools.com/angular/angular_scopes.asp </li> 
+                   <li>https://www.w3schools.com/angular/angular_animations.asp </li> 
+                   <li>https://docs.angularjs.org/guide/animations</li>  
+                  </ul>
+                  
+             
+              </div>
+        </div>
+            
+    <script>
+        var app = angular.module('myApp', []);
+        app.run(function($rootScope) {
+            $rootScope.heading = 'Second Section';
+            $rootScope.num1 = 100 / 2;
+            
+        });
+        app.controller('myCtrl', function($scope) {
+            $scope.heading = '';
+            $scope.num1 = 10 + 500;
+        });
+    </script>    
+            
+    </body>
+</html>
